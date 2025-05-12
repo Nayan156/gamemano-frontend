@@ -49,23 +49,23 @@ export default function ProductPage() {
       .finally(() => setLoading(false));
   }, [id]);
 
-  // Redirect to products list if no id or error
+  
   useEffect(() => {
     if (!id || error) {
-      // small delay so user sees the error briefly (optional)
+      
       setTimeout(() => router.replace('/products'), 1500);
     }
   }, [id, error, router]);
 
-    // fetch recommended products once
+    
     useEffect(() => {
       axiosInstance
         .get('/products')
         .then(res => {
           const all = res.data.products || res.data;
-          // for example, exclude the current and take 6:
+          
           const recs = all.filter(p => p.id.toString() !== id)
-          // .slice(0, 6);
+          
           setRecommended(recs);
         })
         .catch(console.error);
@@ -95,43 +95,11 @@ export default function ProductPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b  text-gray-100">
-      {/* Hero */}
-      {/* <section className="relative h-[60vh] flex items-center justify-center overflow-hidden ">
-        <Image
-          src={product.images[0] || '/fallback.jpg'}
-          alt={product.title}
-          fill
-          className="object-cover opacity-30"
-        />
-        <div className="relative flex flex-col justify-center items-center min-w-[1000px] min-h-[500px] z-10 text-center p-4 border border-gray-50">
-          <h1 className="text-7xl font-[\'Algerian\',serif] text-[#ffe3c1] mb-4">{product.title}</h1>
-          <div className="flex items-center bg-black/55 min-w-[84px] max-w-[120px] h-[23px] gap-[10px] px-[8px] py-[4px]  rounded-[20px] text-xs leading-none text-white mb-3">
-            <span className="w-2 h-2 bg-green-500 rounded-full" />
-            <span>{product.availabilityStatus} ({product.stock})</span>
-          </div>
-
-          <div
-            className="
-              absolute
-              top-[20px] left-[8px]
-              w-[98px] h-[18px]
-              flex items-center
-              gap-[2px]
-              text-yellow-400
-            "
-          >
-            {renderStars(product.rating)}
-          </div>
-    
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition">
-            Buy Now
-          </button>
-        </div>
-      </section> */}
+      
       {isMobile ? (
-  // === MOBILE HERO SECTION ===
+  
   <section className="relative h-[450px] w-full overflow-hidden flex items-center justify-center px-4">
-  {/* Background Image */}
+  
   <Image
     src={product.images[0] || '/fallback.jpg'}
     alt={product.title}
@@ -139,7 +107,7 @@ export default function ProductPage() {
     className="object-cover opacity-30"
   />
 
-  {/* Foreground Content */}
+  
   <div className="relative z-10 text-center p-4 w-full max-w-[360px] border border-white/30 rounded-lg bg-black/40 backdrop-blur-sm">
     <h1 className="text-2xl font-bold text-white mb-3">{product.title}</h1>
 
@@ -157,7 +125,7 @@ export default function ProductPage() {
 </section>
 
 ) : (
-  // === DESKTOP HERO SECTION ===
+  
   <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
     <Image
       src={product.images[0] || '/fallback.jpg'}
@@ -187,93 +155,15 @@ export default function ProductPage() {
       <h2 className="text-2xl font-semibold mb-2">{product.description}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            {/* <h2 className="text-2xl font-semibold mb-2">Product Details</h2>
-            <ul className="space-y-1 text-gray-300">
-              <li><strong>Category:</strong> {product.category}</li>
-              <li><strong>Brand:</strong> {product.brand}</li>
-              <li><strong>SKU:</strong> {product.sku}</li>
-              <li><strong>Weight:</strong> {product.weight}g</li>
-              <li>
-                <strong>Dimensions:</strong> {product.dimensions.width}×{product.dimensions.height}×{product.dimensions.depth} mm
-              </li>
-              <li><strong>Availability:</strong> {product.availabilityStatus}</li>
-              <li><strong>Warranty:</strong> {product.warrantyInformation}</li>
-              <li><strong>Shipping:</strong> {product.shippingInformation}</li>
-            </ul> */}
+            
           </div>
           <div>
-            {/* <h2 className="text-2xl font-semibold mb-2">Tags</h2>
-            <div className="flex flex-wrap gap-2">
-              {product.tags.map(tag => (
-                <span key={tag} className="bg-gray-700 px-3 py-1 rounded-full text-sm">
-                  {tag}
-                </span>
-              ))}
-            </div> */}
+            
           </div>
         </div>
       </section>
 
-      {/* Reviews */}
-      {/* <section className="px-6 py-10">
-        <h2 className="text-3xl font-semibold text-center mb-6">Reviews from other buyers</h2>
-        <div className="space-y-4 max-w-3xl mx-auto">
-          {product.reviews.map((r, idx) => (
-            <div key={idx} className="bg-gray-700 p-4 rounded-lg">
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-semibold">{r.reviewerName}</span>
-                <span className="text-yellow-400">{'★'.repeat(r.rating)}</span>
-              </div>
-              <p className="text-gray-300">{r.comment}</p>
-              <span className="text-sm text-gray-500">
-                {new Date(r.date).toLocaleDateString()}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
-      {/* <section className="px-6 py-10">
-        <h2 className="text-3xl font-semibold text-center mb-8 text-white">
-          Reviews from other buyers
-        </h2>
-        <div className="space-y-6 max-w-3xl mx-auto">
-          {product.reviews.map((r, idx) => (
-            <div
-              key={idx}
-              className="bg-[#d1b280] p-6 rounded-2xl"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full border-2 border-gray-700 " />
-                  <span className="text-lg font-medium text-gray-800">
-                    {r.reviewerName}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <span
-                      key={i}
-                      className={
-                        i < Math.round(r.rating)
-                          ? 'text-yellow-500'
-                          : 'text-yellow-200'
-                      }
-                    >
-                      ★
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <hr className="my-4 border-gray-700" />
-              <p className="text-gray-800 leading-relaxed">
-                {r.comment}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section> */}
+      
 
 <section className="px-6 py-10">
   <h2 className="text-3xl font-semibold text-center mb-8 text-white">
@@ -292,7 +182,7 @@ export default function ProductPage() {
           flex flex-col
         "
       >
-        {/* Header */}
+        
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full border-2 border-gray-700" />
@@ -316,10 +206,10 @@ export default function ProductPage() {
           </div>
         </div>
 
-        {/* Divider */}
+        
         <hr className="border-gray-700 mb-2" />
 
-        {/* Comment */}
+        
         <p className="text-sm text-gray-800 flex-1 overflow-hidden">
           {r.comment}
         </p>
@@ -345,7 +235,7 @@ export default function ProductPage() {
       </section>
 
 
-      {/* Footer CTA */}
+      
       <section className="px-6 py-12 text-center">
         <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition">
           Buy for ${product.price.toFixed(2)}

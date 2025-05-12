@@ -1,4 +1,4 @@
-// components/NavSidebarContent.jsx
+
 'use client';
 import Image from 'next/image';
 import Link  from 'next/link';
@@ -103,13 +103,13 @@ export default function NavSidebarContent() {
       else if (alt === 'Messages') {
         setOpen((prev)=> !prev);
       }
-      // else: handle other bottom‐icons if needed
+      
     };
   return (
     <div className="flex flex-col h-full">
       <div className="px-6 pt-8 pb-6 ">
         <Image
-          src="/GameQuest.png" // replace with your actual logo path
+          src="/GameQuest.png" 
           alt="GameQuest Logo"
           width={216}
           height={24}
@@ -142,24 +142,3 @@ export default function NavSidebarContent() {
 }
 
 
-// export default function NavSidebarContent() {
-//   return (
-//     <div className="flex flex-col h-full">
-//       <div className="px-6 pt-8 pb-6 text-white">
-//         <h1 className="font-poppins font-bold text-2xl">GameQuest</h1>
-//       </div>
-
-//       <nav className="flex-1 px-6 space-y-6 bg-[rgba(61,53,42,0.5)] backdrop-blur-[40px]">
-//         {TOP_ITEMS.map(item => (
-//           <NavItem key={item.href} {...item} />
-//         ))}
-//       </nav>
-
-//       <div className="border-t border-white/30 mx-6" />
-
-//       <nav className="px-6 mt-6 space-y-6">
-//         {/* Bottom items would be rendered similarly */}
-//       </nav>
-//     </div>
-//   );
-// }

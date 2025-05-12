@@ -4,10 +4,7 @@ import Image from 'next/image';
 export default function TrendingSection({ games }) {
   return (
     <div className="mb-12 ml-5 mt-5">
-      {/* <div className="flex items-center justify-between mr-4 mt-10 mb-10">
-        <Image src="/MostTrending.png" alt="Most Trending Logo" width={400} height={400}/>
-        <a href="/products" className="text-lg font-Poppins text-white hover:text-orange-300 hover:underline ">{"GO TO GAME STORE ->"}</a>
-      </div> */}
+      
       <div className="w-full flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-0 mt-10 mb-10 px-4 sm:px-8">
   <Image
     src="/MostTrending.png"

@@ -1,4 +1,4 @@
-// app/layout.js
+
 
 import '../../styles/globals.css'
 import Layout from '../../components/Layout'
@@ -22,25 +22,4 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
-
-// app/(landing)/layout.jsx
-// import LandingSidebar from '@/components/Sidebar';
-// import LandingTopbar  from '@/components/Topbar';
-
-// export default function LandingLayout({ children }) {
-//   return (
-//     <div className="flex flex-col md:flex-row flex-1">
-//       {/* your custom landing sidebar */}
-//       <div className="hidden md:block">
-//         <LandingSidebar />
-//       </div>
-//       <div className="flex-1 flex flex-col">
-//         <LandingTopbar />
-//         <main className="flex-1 overflow-auto">
-//           {children}
-//         </main>
-//       </div>
-//     </div>
-//   );
-// }
 

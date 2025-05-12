@@ -1,4 +1,4 @@
-// // components/NavSidebar.jsx
+
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -6,13 +6,13 @@ import { useEffect, useRef } from 'react';
 export default function NavSidebar({ open, onClose, children }) {
   const ref = useRef(null);
 
-  // Lock background scroll
+  
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
-  // Close when clicking outside
+  
   useEffect(() => {
     if (!open) return;
     function handleClick(e) {
@@ -25,15 +25,15 @@ export default function NavSidebar({ open, onClose, children }) {
   }, [open, onClose]);
 
   return (
-    // Wrapper catches clicks outside
+    
     <div className={`fixed inset-0 z-50 ${open ? 'pointer-events-auto' : 'pointer-events-none'}`}>
-      {/* Backdrop */}
+      
       <div
         className={`absolute inset-0 bg-transparent`}
         onClick={onClose}
       />
 
-      {/* Sliding panel */}
+      
       <div
         ref={ref}
         onMouseLeave={onClose}

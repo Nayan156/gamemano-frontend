@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../lib/axiosInstance'
 
-// Fetch categories from API
+
 export const fetchCategories = createAsyncThunk(
   'categories/fetchAll',
   async () => {
@@ -13,9 +13,9 @@ export const fetchCategories = createAsyncThunk(
 const categorySlice = createSlice({
   name: 'categories',
   initialState: {
-    items: [],       // array of { slug, name, url }
-    selected: ['all'], // allow multiple; default to 'all'
-    status: 'idle',  // 'idle' | 'loading' | 'succeeded' | 'failed'
+    items: [],       
+    selected: ['all'],
+    status: 'idle',  
   },
   reducers: {
     toggleCategory(state, action) {
@@ -23,12 +23,12 @@ const categorySlice = createSlice({
       if (slug === 'all') {
         state.selected = ['all']
       } else {
-        // remove 'all' if selecting a specific
+        
         state.selected = state.selected.filter(s => s !== 'all')
         const idx = state.selected.indexOf(slug)
         if (idx >= 0) state.selected.splice(idx, 1)
         else state.selected.push(slug)
-        // if nothing selected, revert to 'all'
+        
         if (state.selected.length === 0) state.selected = ['all']
       }
     },

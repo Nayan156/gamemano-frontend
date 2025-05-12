@@ -79,7 +79,7 @@ export default function GameCard({ game }) {
 
   }
 
-  // === DESKTOP VIEW ===
+  
   return (
     <div
       onClick={handleClick}

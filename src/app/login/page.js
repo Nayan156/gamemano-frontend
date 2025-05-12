@@ -1,4 +1,4 @@
-// app/login/page.jsx
+
 'use client';
 
 import React, { useState } from 'react';
@@ -14,7 +14,7 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (login({ username, password })) {
-      // router.push('/products');
+      
       window.location.href = '/products';
     } else {
       setError('Invalid username or password');

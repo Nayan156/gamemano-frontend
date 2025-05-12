@@ -1,4 +1,4 @@
-// components/Sidebar.jsx
+
 'use client';
 
 import { useState } from 'react';
@@ -34,13 +34,13 @@ export default function Sidebar() {
       logout();
       router.replace('/login');
     }
-    // else: handle other bottom‐icons if needed
+    
   };
   return (
     <nav className="hidden md:flex flex-col w-[117px] border-r border-white/30">
       <div className="pt-[44px] pl-[23px] bg-black/55">
         <Image
-          src="/GQ.png"     // replace with your actual logo path
+          src="/GQ.png"     
           alt="GameQuest Logo"
           width={76}
           height={38}
@@ -81,9 +81,9 @@ export default function Sidebar() {
       </div>
       </div>
 
-            {/* Our floating nav‐sidebar panel */}
+            
       <NavSidebar open={open} onClose={() => setOpen(false)}>
-        {/* Here you can render your expanded menu items */}
+        
         <NavSidebarContent />
       </NavSidebar>
 

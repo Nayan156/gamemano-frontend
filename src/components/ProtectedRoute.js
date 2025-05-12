@@ -8,7 +8,7 @@ export default function ProtectedRoute({ children }) {
   const [authorized, setAuthorized] = useState(false);
 
   useEffect(() => {
-    // ensure this runs on client
+    
     if (typeof window !== 'undefined') {
       if (isAuthenticated()) {
         setAuthorized(true);
@@ -18,6 +18,6 @@ export default function ProtectedRoute({ children }) {
     }
   }, [router]);
 
-  // Only render children when we're authorized
+  
   return authorized ? <>{children}</> : null;
 }
